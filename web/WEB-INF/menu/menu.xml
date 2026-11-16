@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <group title="Обзор">
+        <item href="/app/home" title="Главная" roles="ADMIN USER"/>
+        <item href="/app/analytics" title="Аналитика" roles="ADMIN USER"/>
+    </group>
+    <group title="Работа с клиентами">
+        <item href="/app/clients" title="Клиенты" roles="ADMIN"/>
+        <item href="/app/accounts" title="Счета" roles="ADMIN"/>
+        <item href="/app/accounts" title="Мои счета" roles="USER"/>
+        <item href="/app/operations" title="Операции" roles="ADMIN USER"/>
+        <item href="/app/operations/transfer" title="Перевод" roles="ADMIN USER"/>
+        <item href="/app/loans" title="Кредиты" roles="ADMIN"/>
+        <item href="/app/loans" title="Мои кредиты" roles="USER"/>
+    </group>
+    <group title="Отчётность">
+        <item href="/app/reports" title="Отчёты" roles="ADMIN USER"/>
+    </group>
+    <group title="Администрирование" roles="ADMIN">
+        <item href="/app/currencies" title="Валюты" roles="ADMIN"/>
+        <item href="/app/account-types" title="Виды счетов" roles="ADMIN"/>
+        <item href="/app/users" title="Пользователи" roles="ADMIN"/>
+        <item href="/app/backups" title="Резервные копии" roles="ADMIN"/>
+    </group>
+    <group title="Профиль">
+        <item href="/app/profile" title="Смена пароля" roles="ADMIN USER"/>
+    </group>
+</menu>

@@ -1,0 +1,30 @@
+<c:choose>
+    <c:when test="${empty operations}">
+        <p class="empty">Операций нет.</p>
+    </c:when>
+    <c:otherwise>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th>Дата</th><th>Операция</th><th>Со счёта</th><th class="num">Списано</th>
+                    <th>На счёт</th><th class="num">Зачислено</th><th>Назначение</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="op" items="${operations}">
+                    <tr>
+                        <td class="nowrap"><fmt:formatDate value="${op.performedAt}" pattern="dd.MM.yyyy HH:mm"/></td>
+                        <td><c:out value="${op.typeTitle}"/></td>
+                        <td class="mono"><c:out value="${op.fromAccountNo}" default="—"/></td>
+                        <td class="num nowrap"><c:if test="${not empty op.debitAmount}"><b:money value="${op.debitAmount}" currency="${op.fromCurrency}"/></c:if></td>
+                        <td class="mono"><c:out value="${op.toAccountNo}" default="—"/></td>
+                        <td class="num nowrap"><c:if test="${not empty op.creditAmount}"><b:money value="${op.creditAmount}" currency="${op.toCurrency}"/></c:if></td>
+                        <td><c:out value="${op.description}"/></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </c:otherwise>
+</c:choose>

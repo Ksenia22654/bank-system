@@ -1,0 +1,14 @@
+<div class="stats">
+    <div class="stat stat-hero">
+        <div class="stat-label">Всего на счетах, в рублях</div>
+        <div class="stat-value"><b:money value="${summary.totalBalance}"/></div>
+    </div>
+    <b:hasRole role="ADMIN">
+        <div class="stat"><div class="stat-label">Клиенты</div><div class="stat-value">${summary.clients}</div></div>
+    </b:hasRole>
+    <div class="stat"><div class="stat-label">Открытые счета</div><div class="stat-value">${summary.accounts}</div></div>
+    <div class="stat"><div class="stat-label">Действующие кредиты</div><div class="stat-value">${summary.activeLoans}</div></div>
+    <b:hasRole role="ADMIN">
+        <div class="stat"><div class="stat-label">Заявки на кредит</div><div class="stat-value">${summary.pendingLoans}</div></div>
+    </b:hasRole>
+</div>

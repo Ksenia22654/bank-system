@@ -1,0 +1,7 @@
+build/
+dist/
+data/
+tomcat/logs/
+tomcat/work/
+tomcat/temp/
+tomcat/webapps/

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+    <description>Собственная библиотека тегов банковской системы</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>b</short-name>
+    <uri>http://bank.local/tags</uri>
+
+    <tag>
+        <description>Меню: XML-документ, преобразованный в HTML через XSLT с учётом роли</description>
+        <name>menu</name>
+        <tag-class>com.bank.tag.MenuTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <description>Форматированная денежная сумма</description>
+        <name>money</name>
+        <tag-class>com.bank.tag.MoneyTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.math.BigDecimal</type>
+        </attribute>
+        <attribute>
+            <name>currency</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Содержимое видно только пользователю с указанной ролью</description>
+        <name>hasRole</name>
+        <tag-class>com.bank.tag.HasRoleTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>role</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <description>Скрытое поле формы с токеном CSRF</description>
+        <name>csrf</name>
+        <tag-class>com.bank.tag.CsrfTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+</taglib>

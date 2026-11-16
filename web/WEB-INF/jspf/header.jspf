@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><c:out value="${pageTitle}"/> — Банк</title>
+    <link rel="stylesheet" href="${ctx}/static/css/app.css">
+    <script src="${ctx}/static/js/app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar">
+        <a class="brand" href="${app}/home">Банк<span>работа с физическими лицами</span></a>
+        <b:menu/>
+        <div class="session">
+            <div class="session-user"><c:out value="${currentUser.login}"/></div>
+            <div class="session-role"><c:out value="${currentUser.roleTitle}"/></div>
+            <form method="post" action="${app}/logout">
+                <b:csrf/>
+                <button type="submit" class="btn btn-sidebar">Выйти</button>
+            </form>
+        </div>
+    </aside>
+    <main class="content">
+        <h1><c:out value="${pageTitle}"/></h1>
+        <c:if test="${not empty sessionScope.flash}">
+            <div class="alert alert-${sessionScope.flash.kind}" role="status"><c:out value="${sessionScope.flash.text}"/></div>
+            <c:remove var="flash" scope="session"/>
+        </c:if>
